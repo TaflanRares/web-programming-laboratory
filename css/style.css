@@ -62,7 +62,7 @@ nav ul li {
     align-items: center;
 }
 
-nav ul li navigator {
+nav ul li a {
     display: inline-block;
     padding: 10px 15px;
     background-color: var(--primary-color);
@@ -72,6 +72,25 @@ nav ul li navigator {
     transition: background-color 0.3s ease;
 }
 
-nav ul li navigator:hover {
+nav ul li a:hover {
     background-color: var(--secondary-color);
+}
+
+body.dark-mode {
+    --primary-color: #084733;
+    --secondary-color: #084532;
+    --background-color: #282A36;
+    --text-color: #f8f8f2cd;
+    a:active {
+        color: rgb(79, 202, 104);
+    }
+    a:link {
+        color: rgb(112, 228, 143);
+    }
+    a:visited {
+        color: rgb(37, 209, 85);
+    }
+    a:hover {
+        color: rgb(47, 246, 20);
+    }
 }

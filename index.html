@@ -10,17 +10,20 @@
     <header style="text-align: center;">
         <nav>
             <ul>
-                <li><navigator href="#about">About Me</navigator></li>
-                <li><navigator href="#education">Education</navigator></li>
-                <li><navigator href="#contact">Contact</navigator></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div style="position: fixed; top: 20px; right: 20px;">
+            <button id = "dark-mode-toggle">🌙 Dark Mode</button>
+        </div>
         <h1>Taflan Rareș</h1>
         <h1>Computer Engineering Student</h1>
     </header>
     <br>
     <main>
-        <section>
+        <section id="about">
             <img class="profile-image" src="images/TaflanRaresProfile.jpeg" alt="Taflan Rareș" width="200" loading="lazy">
             <h3 id="greeting"></h3>
             <h2>About Me</h2>
@@ -30,7 +33,7 @@
             </p>
         </section>
         <br>
-        <section>
+        <section id="education">
             <h2>Education</h2>
             <ol>
                 <li>
@@ -47,7 +50,7 @@
         <br>
     </main>
     <br>
-    <footer>
+    <footer id="contact">
         <p>
             <h2> Contact: </h2>
             <ul>
@@ -80,6 +83,7 @@
         timeGreeting();
     </script>
     <script src="js/contact_form.js"></script>
+    <script src="js/dark_mode.js"></script>
 </body>
 
 </html>
