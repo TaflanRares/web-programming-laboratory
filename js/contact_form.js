@@ -9,7 +9,9 @@ function submitForm() {
     const mesaj = document.getElementById("message").value;
 
     const feedbackElement = document.querySelector("#form-feedback");
-    feedbackElement.style.color = "red";
+    const isDarkMode = document.body.classList.contains("dark-mode");
+
+    feedbackElement.style.color = isDarkMode ? "rgb(255, 120, 120)" : "red";
 
     if (!mail.includes("@") || !mail.includes(".")) {
         notifTrimitere("Email not valid!");
@@ -24,7 +26,7 @@ function submitForm() {
         return;
     }
 
-    feedbackElement.style.color = "green";
+    feedbackElement.style.color = isDarkMode ? "rgb(112, 228, 143)" : "green";
     notifTrimitere(`Thank you ${name}, I will contact you soon!`);
     console.log(`Name: ${name}\nEmail: ${mail}\nMesaj: ${mesaj}`);
 }
