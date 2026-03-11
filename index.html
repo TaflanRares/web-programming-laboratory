@@ -1,119 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taflan Rareș - Portfolio</title>
-</head>
-<body>
-    <header style="text-align: center;">
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div style="position: fixed; top: 20px; right: 20px;">
-            <button id = "dark-mode-toggle">🌙 Dark Mode</button>
-        </div>
-        <h1>Taflan Rareș</h1>
-        <h1>Computer Engineering Student</h1>
-    </header>
-    <br>
-    <main>
-        <section id="about">
-            <img class="profile-image" src="images/TaflanRaresProfile.jpeg" alt="Taflan Rareș" width="200" loading="lazy">
-            <h3 id="greeting"></h3>
-            <h2>About Me</h2>
-            <div class="section-content section-collapsable">
-                <p>
-                    I am in my 2nd year studying at Transilvania University of Brașov.<br>
-                    My main interests are embedded systems, systems programming and computer architecture.<br>
-                </p>
-            </div>
-        </section>
-        <br>
-        <section id="education">
-            <h2>Education</h2>
-            <div class="section-collapsable">
-                <ol>
-                    <li>
-                        Transilvania University of Brașov<br>
-                        Bachelor's in Computer Engineering | 2024 - Present<br>
-                        Psychopedagogic Module Level 1 | 2024 - Present
-                    </li>
-                    <li>
-                        Colegiul Național "Radu Negru" Făgăraș | 2020 - 2024<br>
-                        Mathematics and Computer Science, English Intensive<br>
-                    </li>
-                </ol>
-            </div>
-        </section>
-        <br>
-        <section id="projects">
-            <h2>Projects</h2>
-                <div class="section-collapsable">
-                    <ul id="projects-list">
-                    </ul>
-                </div>
-        </section>
-        <br>
-    </main>
-    <footer id="contact">
-        <p>
-            <h2>Contact</h2>
-            <div class="section-collapsable">
-                <ul>
-                    <li>Email:
-                        <a href="mailto: rarestaflan25@gmail.com">
-                            rarestaflan25@gmail.com
-                        </a>
-                    </li>
-                    <li>LinkedIn:
-                        <a href="https://www.linkedin.com/in/rarestaflan/">
-                            Taflan Rareș
-                        </a>
-                    </li>
-                    <li>GitHub:
-                        <a href="https://github.com/TaflanRares">
-                            TaflanRares
-                        </a>
-                    </li>
-                </ul>
-                <form class = "contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit"> Send </button>
-                <p id="form-feedback"></p>
-            </form>
-            </div>
-        </p>
-        <p style="text-align: center;">&copy; 2026 Taflan Rareș. All rights reserved.</p>
-    </footer>
-    <script src="js/header_greeting.js"></script>
-    <script>
-        timeGreeting();
-    </script>
-    <script src="js/section_collapse.js"></script>
-    <script>
-        section_collapse();
-    </script>
-    <script src="js/contact_form.js"></script>
-    <script src="js/dark_mode.js"></script>
-    <script src="js/array.js"></script>
-    <script>
-        array();
-    </script>
-    <script src="js/projects_array.js"></script>
-    <script>
-        projects_array();
-    </script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
