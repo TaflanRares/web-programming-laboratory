@@ -1,0 +1,128 @@
+:root {
+  --font-family: Verdana, Geneva, Tahoma, sans-serif;
+  --primary-color: #095c42;
+  --secondary-color: rgb(13, 124, 89);
+  --background-color: #ffffff;
+  --text-color: #232323;
+  --form-background: #f2f2f2;
+  --link-active: #009933;
+  --link-color: #006b2d;
+  --link-visited: #004d20;
+  --link-hover: #00b84d;
+
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 80%;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a:active {
+  color: var(--link-active);
+}
+
+a:link {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+button,
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+body.dark-mode {
+  --primary-color: #084733;
+  --secondary-color: #084532;
+  --background-color: #282a36;
+  --text-color: #e8e8e8;
+  --form-background: #323544;
+  --link-active: rgb(79, 202, 104);
+  --link-color: rgb(112, 228, 143);
+  --link-visited: rgb(37, 209, 85);
+  --link-hover: rgb(47, 246, 20);
+}
+
+body.dark-mode a:active {
+  color: var(--link-active);
+}
+
+body.dark-mode a:link {
+  color: var(--link-color);
+}
+
+body.dark-mode a:visited {
+  color: var(--link-visited);
+}
+
+body.dark-mode a:hover {
+  color: var(--link-hover);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--form-background);
+  color: var(--text-color);
+  border: 1px solid #444444;
+}
+
+body.dark-mode input::placeholder {
+  color: #aaaaaa;
+}
+
+body.dark-mode button,
+body.dark-mode input[type="submit"] {
+  background-color: #0d7e4d;
+  color: #e8e8e8;
+}
+
+body.dark-mode button:hover,
+body.dark-mode input[type="submit"]:hover {
+  background-color: #10924a;
+}
+
+@media (max-width: 768px) {
+  body {
+    max-width: 92%;
+  }
+}
