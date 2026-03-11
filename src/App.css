@@ -98,6 +98,59 @@ body.dark-mode nav ul li a:hover {
   background-color: #10924a;
 }
 
+#clicker {
+  width: 100%;
+}
+
+.clicker-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.clicker-panel {
+  justify-self: start;
+  width: 100%;
+  text-align: left;
+}
+
+.clicker-panel p {
+  margin-top: 8px;
+}
+
+.clicker-panel button {
+  margin-top: 12px;
+}
+
+.clicker-items-panel {
+  justify-self: end;
+  width: min(100%, 460px);
+  text-align: left;
+}
+
+.clicker-item-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background-color: #f4f8f6;
+}
+
+.clicker-item-card p {
+  margin-top: 6px;
+}
+
+.clicker-item-card button {
+  margin-top: 10px;
+}
+
+body.dark-mode .clicker-item-card {
+  background-color: var(--form-background);
+  border-color: #444444;
+}
+
 @media (max-width: 768px) {
   nav ul {
     display: flex;
@@ -108,5 +161,15 @@ body.dark-mode nav ul li a:hover {
 
   nav ul li a {
     padding: 8px 12px;
+  }
+
+  .clicker-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .clicker-items-panel,
+  .clicker-panel {
+    justify-self: stretch;
+    width: 100%;
   }
 }
