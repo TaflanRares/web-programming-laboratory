@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import profilePicture from './assets/RaresPFP.jpeg'
 import './App.css'
+
+import Card from './components/Card.jsx';
 
 function App() {
   return (
@@ -19,7 +22,7 @@ function App() {
       </header>
       <main>
         <section id="about">
-          <img className="profile-image" src={viteLogo} alt="Taflan Rareș" width="200" loading="lazy" />
+          <img className="profile-image" src={profilePicture} alt="Taflan Rareș" width="200" loading="lazy" />
           <h3 id="greeting"></h3>
           <h2>About Me</h2>
           <div className="section-content section-collapsable">
@@ -49,11 +52,9 @@ function App() {
           <h2>Projects</h2>
           <div className="section-collapsable">
             <ul id="projects-list">
-              <li>
-                Transilvania University of Brașov<br />
-                Bachelor's in Computer Engineering | 2024 - Present<br />
-                Psychopedagogic Module Level 1 | 2024 - Present
-              </li>
+              <Card title="Proiect 1" description="Pagina personala cu HTML si CSS" />
+              <Card title="Proiect 2" description="Pagina interactiva cu JavaScript" />
+              <Card title="Proiect 3" description="Dashboard cu React" />
             </ul>
           </div>
         </section>
