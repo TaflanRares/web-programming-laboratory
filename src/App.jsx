@@ -1,10 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import profilePicture from './assets/RaresPFP.jpeg'
 import './App.css'
 
 import Card from './components/Card.jsx';
+import Clicker from './components/Clicker.jsx';
+
+const projects = [
+  { title: "Portfolio page", description: "Personal portfolio page with React" },
+  { title: "VR Circuits", description: "Virtual reality educational circuits simulation" },
+  { title: "Lingua Astra", description: "Unreal Engine retro-inspired puzzle game" },
+];
 
 function App() {
   return (
@@ -52,9 +56,9 @@ function App() {
           <h2>Projects</h2>
           <div className="section-collapsable">
             <ul id="projects-list">
-              <Card title="Proiect 1" description="Pagina personala cu HTML si CSS" />
-              <Card title="Proiect 2" description="Pagina interactiva cu JavaScript" />
-              <Card title="Proiect 3" description="Dashboard cu React" />
+              {projects.map((project, index) => (
+                <Card key={index} title={project.title} description={project.description} />
+              ))}
             </ul>
           </div>
         </section>
@@ -68,8 +72,6 @@ function App() {
               <a href="mailto:rarestaflan25@gmail.com">
                 rarestaflan25@gmail.com
               </a>
-            </li>
-            <li>
               LinkedIn:
               <a href="https://www.linkedin.com/in/rarestaflan/">
                 Taflan Rareș
@@ -83,6 +85,14 @@ function App() {
             </li>
           </ul>
         </div>
+        <br/>
+
+        <section id="clicker">
+          <h1>Taflan Clicker</h1>
+          <Clicker />
+        </section>
+
+        <br/>
         <p style={{ textAlign: 'center' }}>&copy; 2026 Taflan Rareș. All rights reserved.</p>
       </footer>
     </>
