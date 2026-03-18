@@ -74,12 +74,109 @@ h1 {
   text-align: center;
 }
 
-form.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  max-width: 75%;
-  margin: 0 auto;
+.contact-form-card {
+  width: min(100%, 560px);
+  margin: 14px auto 0;
+  padding: 18px;
+  border: 1px solid #cfddd7;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f9fcfa 0%, #edf5f1 100%);
+  box-shadow: 0 12px 24px rgba(5, 44, 30, 0.09);
+}
+
+.contact-form-title {
+  margin-bottom: 12px;
+  font-size: 1.08rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-form-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1e4035;
+}
+
+.contact-form-input,
+.contact-form-textarea {
+  width: 100%;
+  border: 1px solid #b9cbc2;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1f2824;
+  padding: 10px 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form-input::placeholder,
+.contact-form-textarea::placeholder {
+  color: #77877f;
+}
+
+.contact-form-input:focus,
+.contact-form-textarea:focus {
+  outline: none;
+  border-color: #0d7d5a;
+  box-shadow: 0 0 0 3px rgba(13, 125, 90, 0.2);
+}
+
+.contact-form-button {
+  justify-self: start;
+  min-width: 130px;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.contact-form-feedback {
+  margin-top: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #bdddc9;
+  background-color: #e2f2ea;
+  color: #0b5a3f;
+  font-size: 0.92rem;
+}
+
+body.dark-mode .contact-form-card {
+  border-color: #4e5f58;
+  background: linear-gradient(145deg, #32413b 0%, #2b3531 100%);
+  box-shadow: none;
+}
+
+body.dark-mode .contact-form-label {
+  color: #ddece5;
+}
+
+body.dark-mode .contact-form-input,
+body.dark-mode .contact-form-textarea {
+  background-color: #2f3a35;
+  border-color: #55655e;
+  color: #e8e8e8;
+}
+
+body.dark-mode .contact-form-input::placeholder,
+body.dark-mode .contact-form-textarea::placeholder {
+  color: #9fb0a8;
+}
+
+body.dark-mode .contact-form-input:focus,
+body.dark-mode .contact-form-textarea:focus {
+  border-color: #53b58a;
+  box-shadow: 0 0 0 3px rgba(83, 181, 138, 0.25);
+}
+
+body.dark-mode .contact-form-feedback {
+  background-color: #355547;
+  border-color: #4a7561;
+  color: #dff5e8;
 }
 
 nav ul {
@@ -293,5 +390,15 @@ body.dark-mode .clicker-item-card {
   .clicker-panel {
     justify-self: stretch;
     width: 100%;
+  }
+
+  .contact-form-card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .contact-form-button {
+    width: 100%;
+    justify-self: stretch;
   }
 }

@@ -5,6 +5,7 @@ import Card from './components/Card.jsx';
 import Clicker from './components/Clicker.jsx';
 import ToDoList from './components/ToDoList.jsx';
 import Clock from './components/Clock.jsx';
+import ContactForm from './components/ContactForm.jsx';
 
 const projects = [
   { title: "Portfolio page", description: "Personal portfolio page with React" },
@@ -77,7 +78,9 @@ function App() {
               Email:
               <a href="mailto:rarestaflan25@gmail.com">
                 rarestaflan25@gmail.com
-              </a>
+              </a> 
+            </li>
+            <li>
               LinkedIn:
               <a href="https://www.linkedin.com/in/rarestaflan/">
                 Taflan Rareș
@@ -90,6 +93,7 @@ function App() {
               </a>
             </li>
           </ul>
+          <ContactForm />
         </div>
         <br/>
 
