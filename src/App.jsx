@@ -3,7 +3,8 @@ import './App.css'
 
 import Card from './components/Card.jsx';
 import Clicker from './components/Clicker.jsx';
-import TodoList from './components/TodoList.jsx';
+import ToDoList from './components/ToDoList.jsx';
+import Clock from './components/Clock.jsx';
 
 const projects = [
   { title: "Portfolio page", description: "Personal portfolio page with React" },
@@ -14,7 +15,10 @@ const projects = [
 function App() {
   return (
     <>
-      <header style={{ textAlign: 'center' }}>
+      <header className="site-header">
+        <div className="header-clock-wrap">
+          <Clock />
+        </div>
         <nav>
           <ul>
             <li><a href="#about">About Me</a></li>
@@ -27,7 +31,7 @@ function App() {
       </header>
       <main>
         <section id="about">
-          <TodoList/>
+          <ToDoList/>
           <img className="profile-image" src={profilePicture} alt="Taflan Rareș" width="200" loading="lazy" />
           <h3 id="greeting"></h3>
           <h2>About Me</h2>

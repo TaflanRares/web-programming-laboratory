@@ -12,6 +12,34 @@ footer {
   width: 100%;
 }
 
+.site-header {
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.header-clock-wrap {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  margin-left: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cdd9d4;
+  background-color: #f3f8f6;
+}
+
+.header-clock-wrap p {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+body.dark-mode .header-clock-wrap {
+  border-color: #46544e;
+  background-color: #37413d;
+}
+
 main h2,
 footer h2 {
   position: relative;
@@ -234,6 +262,18 @@ body.dark-mode .clicker-item-card {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-clock-wrap {
+    position: static;
+    align-self: flex-start;
+    margin: 0 0 10px;
+  }
+
   nav ul {
     display: flex;
     justify-content: center;
