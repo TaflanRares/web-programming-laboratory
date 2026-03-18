@@ -3,6 +3,7 @@ import './App.css'
 
 import Card from './components/Card.jsx';
 import Clicker from './components/Clicker.jsx';
+import QuickNote from './QuickNote.jsx';
 
 const projects = [
   { title: "Portfolio page", description: "Personal portfolio page with React" },
@@ -26,6 +27,7 @@ function App() {
       </header>
       <main>
         <section id="about">
+          <QuickNote/>
           <img className="profile-image" src={profilePicture} alt="Taflan Rareș" width="200" loading="lazy" />
           <h3 id="greeting"></h3>
           <h2>About Me</h2>
