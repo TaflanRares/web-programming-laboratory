@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import profilePicture from './assets/RaresPFP.jpeg'
 import './App.css'
 
@@ -7,6 +8,22 @@ import ToDoList from './components/ToDoList.jsx';
 import Clock from './components/Clock.jsx';
 import ContactForm from './components/ContactForm.jsx';
 
+const THEME_STORAGE_KEY = 'theme-preference';
+
+function getInitialDarkMode() {
+  const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+  if (storedTheme === 'dark') {
+    return true;
+  }
+
+  if (storedTheme === 'light') {
+    return false;
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 const projects = [
   { title: "Portfolio page", description: "Personal portfolio page with React" },
   { title: "VR Circuits", description: "Virtual reality educational circuits simulation" },
@@ -14,12 +31,31 @@ const projects = [
 ];
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(getInitialDarkMode);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    window.localStorage.setItem(THEME_STORAGE_KEY, isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  function handleThemeToggle() {
+    setIsDarkMode((currentTheme) => !currentTheme);
+  }
+
   return (
     <>
       <header className="site-header">
         <div className="header-clock-wrap">
           <Clock />
         </div>
+        <button
+          type="button"
+          className="theme-toggle-button"
+          onClick={handleThemeToggle}
+          aria-pressed={isDarkMode}
+        >
+          {isDarkMode ? 'Light mode' : 'Dark mode'}
+        </button>
         <nav>
           <ul>
             <li><a href="#about">About Me</a></li>

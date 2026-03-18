@@ -1,0 +1,83 @@
+.todo-list-widget {
+  width: min(100%, 360px);
+  margin: 0 0 18px;
+  padding: 12px;
+  border: 1px solid #d3ddd8;
+  border-radius: 8px;
+  background-color: #f7faf8;
+}
+
+.todo-list-widget h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.todo-list-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.todo-list-input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid #bfcac5;
+  border-radius: 4px;
+}
+
+.todo-list-add-button {
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.todo-list-items {
+  list-style: none;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.todo-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.todo-list-item span {
+  overflow-wrap: anywhere;
+}
+
+.todo-list-delete-button {
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  background-color: #dce8e2;
+  color: #104a36;
+}
+
+.todo-list-delete-button:hover {
+  background-color: #c9dbd2;
+}
+
+body.dark-mode .todo-list-widget {
+  background-color: var(--form-background);
+  border-color: #444444;
+}
+
+body.dark-mode .todo-list-input {
+  border-color: #555555;
+  background: var(--form-background);
+  color: var(--text-color);
+}
+
+body.dark-mode .todo-list-delete-button {
+  background-color: #4b5e57;
+  color: #e8e8e8;
+}
+
+body.dark-mode .todo-list-delete-button:hover {
+  background-color: #587066;
+}
