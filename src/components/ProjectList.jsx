@@ -36,7 +36,8 @@ function ProjectList() {
                         Card({
                             key: index,
                             title: project.title,
-                            description: project.tech
+                            subtitle: project.tech,
+                            description: project.description
                         })
                     )
                 })

@@ -2,26 +2,30 @@
     "projects": [
         {
             "id": 1,
-            "title": "Pagina Personala",
+            "title": "Personal Website",
             "tech": "HTML, CSS, JS",
+            "description": "Personal portfolio page with React",
             "done": true
         },
         {
             "id": 2,
             "title": "Ohm's Gate",
             "tech": "Unreal Engine, C++",
+            "description": "Virtual reality educational circuits simulation",
             "done": false
         },
         {
             "id": 3,
             "title": "Lingua Astra",
             "tech": "Unreal Engine, C++",
+            "description": "Retro-inspired puzzle game set in a mysterious space station",
             "done": true
         },
         {
             "id": 4,
             "title": "Regolith Red",
             "tech": "Godot, GDScript",
+            "description": "Classic strategy game set on Mars",
             "done": true
         }
     ]

@@ -9,6 +9,7 @@
   --link-color: #006b2d;
   --link-visited: #004d20;
   --link-hover: #00b84d;
+  --h5-color: #626f69;
 
   font-family: var(--font-family);
   line-height: 1.5;
@@ -80,6 +81,7 @@ body.dark-mode {
   --link-color: rgb(112, 228, 143);
   --link-visited: rgb(37, 209, 85);
   --link-hover: rgb(47, 246, 20);
+  --h5-color: #aab5b0;
 }
 
 body.dark-mode a:active {

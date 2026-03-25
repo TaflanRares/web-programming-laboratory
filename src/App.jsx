@@ -8,6 +8,7 @@ import ToDoList from './components/ToDoList.jsx';
 import Clock from './components/Clock.jsx';
 import ContactForm from './components/ContactForm.jsx';
 import ProjectList from './components/ProjectList.jsx';
+import GithubProfile from './components/GithubProfile.jsx';
 
 const THEME_STORAGE_KEY = 'theme-preference';
 
@@ -24,12 +25,6 @@ function getInitialDarkMode() {
 
   return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
-
-const projects = [
-  { title: "Portfolio page", description: "Personal portfolio page with React" },
-  { title: "VR Circuits", description: "Virtual reality educational circuits simulation" },
-  { title: "Lingua Astra", description: "Unreal Engine retro-inspired puzzle game" },
-];
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(getInitialDarkMode);
@@ -128,9 +123,11 @@ function App() {
             </li>
             <li>
               GitHub:
-              <a href="https://github.com/TaflanRares">
-                TaflanRares
-              </a>
+              <section id="github-profile">
+                <div className="section-content section-collapsable">
+                  <GithubProfile />
+                </div>
+              </section>
             </li>
           </ul>
           <ContactForm />

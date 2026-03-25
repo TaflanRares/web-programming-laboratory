@@ -81,6 +81,15 @@ h1 {
   text-align: center;
 }
 
+h5 {
+  margin-top: 2px;
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--h5-color);
+}
+
 #greeting {
   text-align: center;
 }
