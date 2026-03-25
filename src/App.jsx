@@ -7,6 +7,7 @@ import Clicker from './components/Clicker.jsx';
 import ToDoList from './components/ToDoList.jsx';
 import Clock from './components/Clock.jsx';
 import ContactForm from './components/ContactForm.jsx';
+import ProjectList from './components/ProjectList.jsx';
 
 const THEME_STORAGE_KEY = 'theme-preference';
 
@@ -97,6 +98,8 @@ function App() {
         </section>
         <section id="projects">
           <h2>Projects</h2>
+            <ProjectList />
+          {/*
           <div className="section-collapsable">
             <ul id="projects-list">
               {projects.map((project, index) => (
@@ -104,6 +107,7 @@ function App() {
               ))}
             </ul>
           </div>
+          */}
         </section>
       </main>
       <footer id="contact">

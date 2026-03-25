@@ -1,0 +1,28 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "Pagina Personala",
+            "tech": "HTML, CSS, JS",
+            "done": true
+        },
+        {
+            "id": 2,
+            "title": "Ohm's Gate",
+            "tech": "Unreal Engine, C++",
+            "done": false
+        },
+        {
+            "id": 3,
+            "title": "Lingua Astra",
+            "tech": "Unreal Engine, C++",
+            "done": true
+        },
+        {
+            "id": 4,
+            "title": "Regolith Red",
+            "tech": "Godot, GDScript",
+            "done": true
+        }
+    ]
+}
