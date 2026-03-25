@@ -5,6 +5,8 @@ function ProjectList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const [search, setSearch] = useState('');
+
     useEffect(function () {
         fetch('/data/projects.json')
             .then(function (response) {
@@ -29,9 +31,14 @@ function ProjectList() {
 
     return (
         <div>
-            {/* TODO: Afisati proiectele cu map() si componenta Card din Lab 4 */}
+            <input value={search} onChange={(e) => setSearch(e.target.value)} />
+            <h5>
+                Proiecte: {projects.filter(item => item.title.toLowerCase().includes(search.toLowerCase())).length}
+            </h5>
             {
-                projects.map(function (project, index) {
+                projects
+                .filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
+                .map(function (project, index) {
                     return (
                         Card({
                             key: index,

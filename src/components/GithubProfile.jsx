@@ -50,15 +50,16 @@ function GithubProfile() {
   return (
     <article>
       {/* <h3>{profile.name || profile.login}</h3> */}
+      Github:
+      <a href={profile.html_url} target="_blank" rel="noreferrer">
+        TaflanRares
+      </a>
       <p>{profile.bio || 'No bio available'}</p>
       <ul>
         <li>Followers: {profile.followers}</li>
         <li>Public repos: {profile.public_repos}</li>
         {/* <li>Location: {profile.location || 'Not available'}</li> */}
       </ul>
-      <a href={profile.html_url} target="_blank" rel="noreferrer">
-        View on GitHub
-      </a>
     </article>
   );
 }
