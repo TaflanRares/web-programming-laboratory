@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import profilePicture from '../assets/RaresPFP.jpeg'
 import '../App.css'
+
+import profilePicture from '../assets/RaresPFP.jpeg'
+
 import Clock from '../components/Clock.jsx';
 
 function Home() {
@@ -22,7 +23,7 @@ function Home() {
           <div className="section-content section-collapsable">
             <p>
               I am in my 2nd year studying at Transilvania University of Brașov.<br />
-              My main interests are embedded systems, systems programming and computer architecture.<br />
+              My main interests are embedded systems and computer architecture.<br />
             </p>
           </div>
         </section>
