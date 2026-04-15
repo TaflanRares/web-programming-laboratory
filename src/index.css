@@ -10,6 +10,10 @@
   --link-visited: #004d20;
   --link-hover: #00b84d;
   --h5-color: #626f69;
+  --section-bg: linear-gradient(160deg, #ffffff 0%, #f5faf7 100%);
+  --section-border: #d8e7df;
+  --section-shadow: 0 10px 24px rgba(8, 40, 28, 0.08);
+  --section-shadow-hover: 0 14px 30px rgba(8, 40, 28, 0.12);
 
   font-family: var(--font-family);
   line-height: 1.5;
@@ -82,6 +86,10 @@ body.dark-mode {
   --link-visited: rgb(37, 209, 85);
   --link-hover: rgb(47, 246, 20);
   --h5-color: #aab5b0;
+  --section-bg: linear-gradient(155deg, #2f3342 0%, #2a2e3c 100%);
+  --section-border: #46504d;
+  --section-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+  --section-shadow-hover: 0 16px 34px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode a:active {

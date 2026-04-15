@@ -12,6 +12,105 @@ footer {
   width: 100%;
 }
 
+main {
+  display: grid;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+main section,
+footer,
+#clicker-game {
+  position: relative;
+  overflow: hidden;
+  background: var(--section-bg);
+  border: 1px solid var(--section-border);
+  border-radius: 16px;
+  box-shadow: var(--section-shadow);
+}
+
+main section,
+#clicker-game {
+  padding: 28px 32px 30px;
+}
+
+main section::before,
+footer::before,
+#clicker-game::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0f9d72 0%, #1bb38b 55%, #55d0af 100%);
+}
+
+footer {
+  margin-top: 20px;
+  padding: 28px 32px 30px;
+}
+
+#clicker-game {
+  margin-top: 20px;
+}
+
+#about::before {
+  background: linear-gradient(90deg, #0f9d72 0%, #1bb38b 100%);
+}
+
+#education::before {
+  background: linear-gradient(90deg, #2f84c8 0%, #52a3e2 100%);
+}
+
+#projects::before {
+  background: linear-gradient(90deg, #d69228 0%, #e9af43 100%);
+}
+
+#todo::before {
+  background: linear-gradient(90deg, #7a57c9 0%, #9a77dd 100%);
+}
+
+#github-profile::before {
+  background: linear-gradient(90deg, #51617a 0%, #6b7e9d 100%);
+}
+
+#clicker-game::before {
+  background: linear-gradient(90deg, #cb4f6f 0%, #de7590 100%);
+}
+
+main section .section-content,
+main section .section-collapsable,
+footer .section-content,
+footer .section-collapsable,
+#clicker-game .section-content,
+#clicker-game .section-collapsable {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+main section p,
+main section li,
+footer p,
+footer li,
+#clicker-game p,
+#clicker-game li {
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+main section p,
+main section li,
+footer p,
+footer li {
+  text-align: center;
+}
+
+#education ol,
+#projects ul {
+  list-style-position: inside;
+}
+
 .site-header {
   position: relative;
   text-align: center;
@@ -52,21 +151,26 @@ body.dark-mode .header-clock-wrap {
 }
 
 main h2,
-footer h2 {
-  position: relative;
-  padding-left: 25px;
+footer h2,
+#clicker-game h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
 }
 
 main h2::before,
-footer h2::before {
+footer h2::before,
+#clicker-game h2::before {
   content: "\25BC";
-  position: absolute;
-  left: 0;
+  position: static;
   transition: transform 0.3s ease;
 }
 
 main h2.collapsed::before,
-footer h2.collapsed::before {
+footer h2.collapsed::before,
+#clicker-game h2.collapsed::before {
   content: "\25B6";
 }
 
@@ -94,6 +198,6 @@ h5 {
   text-align: center;
 }
 
-#clicker {
+#clicker-game {
   width: 100%;
 }

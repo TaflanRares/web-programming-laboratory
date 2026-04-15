@@ -47,4 +47,29 @@
     width: 100%;
     justify-self: stretch;
   }
+
+  main {
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  main section,
+  footer,
+  #clicker-game {
+    border-radius: 12px;
+  }
+
+  main section,
+  #clicker-game {
+    padding: 20px;
+  }
+
+  footer {
+    margin-top: 14px;
+    padding: 20px;
+  }
+
+  #clicker-game {
+    margin-top: 14px;
+  }
 }
