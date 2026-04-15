@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const THEME_STORAGE_KEY = 'theme-preference';
 
