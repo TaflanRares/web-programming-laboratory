@@ -3,7 +3,7 @@ import GithubProfile from '../components/GithubProfile.jsx';
 
 function Contact() {
     return (
-        <footer id="contact">
+        <div id="contact">
             <h2>Contact</h2>
             <div className="section-collapsable">
                 <ul>
@@ -26,9 +26,7 @@ function Contact() {
                 </div>
                 <ContactForm />
             </div>
-            <br />
-            <p style={{ textAlign: 'center' }}>&copy; 2026 Taflan Rareș. All rights reserved.</p>
-        </footer>
+        </div>
     );
 }
 export default Contact;

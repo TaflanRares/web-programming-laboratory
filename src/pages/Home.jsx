@@ -3,33 +3,7 @@ import profilePicture from '../assets/RaresPFP.jpeg'
 import '../App.css'
 import Clock from '../components/Clock.jsx';
 
-const THEME_STORAGE_KEY = 'theme-preference';
-
-function getInitialDarkMode() {
-    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-
-    if (storedTheme === 'dark') {
-        return true;
-    }
-
-    if (storedTheme === 'light') {
-        return false;
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-}
-
 function Home() {
-    const [isDarkMode, setIsDarkMode] = useState(getInitialDarkMode);
-    
-    useEffect(() => {
-        document.body.classList.toggle ('dark-mode', isDarkMode);
-        window.localStorage.setItem (THEME_STORAGE_KEY, isDarkMode ? 'dark' : 'light');
-    }, [isDarkMode]);
-    
-      function handleThemeToggle() {
-        setIsDarkMode((currentTheme) => !currentTheme);
-    }
 
     return (
         <div>
@@ -37,21 +11,6 @@ function Home() {
         <div className="header-clock-wrap">
           <Clock />
         </div>
-        <button
-          type="button"
-          className="theme-toggle-button"
-          onClick={handleThemeToggle}
-          aria-pressed={isDarkMode}
-        >
-          {isDarkMode ? 'Light mode' : 'Dark mode'}
-        </button>
-        <nav>
-          <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
         <h1>Taflan Rareș</h1>
         <h1>Computer Engineering Student</h1>
       </header>
@@ -84,9 +43,6 @@ function Home() {
           </div>
         </section>
         </main>
-        <footer className="site-footer">
-          <p>&copy; 2023 Taflan Rareș. All rights reserved.</p>
-        </footer>
       </div>    
     );
 }

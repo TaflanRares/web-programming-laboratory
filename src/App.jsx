@@ -9,7 +9,7 @@ import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-
+import Footer from './pages/Footer.jsx';
 
 const THEME_STORAGE_KEY = 'theme-preference';
 
@@ -47,6 +47,7 @@ function App() {
           <Route path = "/projects" element={<Projects />} />
           <Route path = "/contact" element={<Contact />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
   );
 }
