@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = 3000;
+app.use(express.json());
+app.use(cors());
 
 const projects = [
     {
@@ -33,6 +36,18 @@ const projects = [
     }
 ];
 
+app.post('/api/projects', function (req, res) {
+    const newProject = {
+        id: projects.length + 1,
+        title: req.body.title,
+        tech: req.body.tech,
+        description: req.body.description,
+        done: req.body.done || false,
+    };
+    projects.push(newProject);
+    res.status(201).json(newProject);
+});
+
 app.get('/api/projects', function (req, res) {
     res.json(projects);
 });
@@ -44,6 +59,34 @@ app.get('/api/project/:id', function (req, res) {
     } else {
         res.status(404).json({ error: 'Project not found' });
     }
+});
+
+app.delete('/api/projects/:id', function (req, res) {
+    const id = parseInt(req.params.id);
+    const index = projects.findIndex(p => p.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ error: 'Not found' });
+    }
+
+    projects.splice(index, 1);
+    res.json({ message: 'Deleted' });
+});
+
+app.put('/api/projects/:id', function (req, res) {
+    const id = parseInt(req.params.id);
+    const project = projects.find(p => p.id === id);
+
+    if (!project) {
+        return res.status(404).json({ error: 'Not found' });
+    }
+
+    project.title = req.body.title ?? project.title;
+    project.tech = req.body.tech ?? project.tech;
+    project.description = req.body.description ?? project.description;
+    project.done = req.body.done ?? project.done;
+
+    res.json(project);
 });
 
 app.get('/api/projects/stats', function (req, res) {
