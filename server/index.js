@@ -40,28 +40,33 @@ app.post('/api/projects', async function (req, res) {
     }
 });
 
+app.get('/api/project/:id', async function (req, res) {
+    try {
+        const project = await Project.findById(req.params.id);
+        if (project) {
+            res.json(project);
+        } else {
+            res.status(404).json({ error: 'Project not found' });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err.message});
+    }
+});
+
+app.delete('/api/projects/:id', async function (req, res) {
+    try {
+        const project = await Project.findByIdAndDelete(req.params.id);
+        if (project) {
+            res.json({ message: 'Project deleted' });
+        } else {
+            res.status(404).json({ error: 'Project not found' });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err.message});
+    }
+});
+
 /*
-app.get('/api/project/:id', function (req, res) {
-    const project = projects.find(p => p.id === parseInt(req.params.id));
-    if (project) {
-        res.json(project);
-    } else {
-        res.status(404).json({ error: 'Project not found' });
-    }
-});
-
-app.delete('/api/projects/:id', function (req, res) {
-    const id = parseInt(req.params.id);
-    const index = projects.findIndex(p => p.id === id);
-
-    if (index === -1) {
-        return res.status(404).json({ error: 'Not found' });
-    }
-
-    projects.splice(index, 1);
-    res.json({ message: 'Deleted' });
-});
-
 app.put('/api/projects/:id', function (req, res) {
     const id = parseInt(req.params.id);
     const project = projects.find(p => p.id === id);
