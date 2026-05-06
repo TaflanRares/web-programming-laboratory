@@ -1,57 +1,46 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const mongoose = require('mongoose');
+
+const Project = require('./models/Project');
+
+const app = express();
 const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
-const projects = [
-    {
-        "id": 0,
-        "title": "Personal Website",
-        "tech": "HTML, CSS, JS",
-        "description": "Personal portfolio page with React",
-        "done": true
-    },
-    {
-        "id": 1,
-        "title": "Ohm's Gate",
-        "tech": "Unreal Engine, C++",
-        "description": "Virtual reality educational circuits simulation",
-        "done": false
-    },
-    {
-        "id": 2,
-        "title": "Lingua Astra",
-        "tech": "Unreal Engine, C++",
-        "description": "Retro-inspired puzzle game set in a mysterious space station",
-        "done": true
-    },
-    {
-        "id": 3,
-        "title": "Regolith Red",
-        "tech": "Godot, GDScript",
-        "description": "Classic strategy game set on Mars",
-        "done": true
+mongoose.connect('mongodb://localhost:27017/dashboard')
+    .then(function () {
+        console.log('Connected to MongoDB!');
+    })
+    .catch(function (err) {
+        console.error('Error connecting to MongoDB:', err);
+    });
+
+app.get('/api/projects', async function (req, res) {
+    try {
+        const projects = await Project.find();
+        res.json(projects);
+    } catch (err) {
+        res.status(500).json({ error: 'Eroare ' + err });
     }
-];
-
-app.post('/api/projects', function (req, res) {
-    const newProject = {
-        id: projects.length + 1,
-        title: req.body.title,
-        tech: req.body.tech,
-        description: req.body.description,
-        done: req.body.done || false,
-    };
-    projects.push(newProject);
-    res.status(201).json(newProject);
 });
 
-app.get('/api/projects', function (req, res) {
-    res.json(projects);
+app.post('/api/projects', async function (req, res) {
+    try {
+        const newProject = new Project({
+            title: req.body.title,
+            tech: req.body.tech,
+            done: req.body.done || false,
+        });
+        const saved = await newProject.save();
+        res.status(201).json(saved);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
 });
 
+/*
 app.get('/api/project/:id', function (req, res) {
     const project = projects.find(p => p.id === parseInt(req.params.id));
     if (project) {
@@ -96,6 +85,7 @@ app.get('/api/projects/stats', function (req, res) {
 
     res.json({ total, done, notDone });
 });
+*/
 
 // Prima ruta: raspunde la GET /
 app.get('/', function (req, res) {
