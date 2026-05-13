@@ -31,6 +31,7 @@ app.post('/api/projects', async function (req, res) {
         const newProject = new Project({
             title: req.body.title,
             tech: req.body.tech,
+            description: req.body.description,
             done: req.body.done || false,
         });
         const saved = await newProject.save();

@@ -17,6 +17,26 @@
   gap: 8px;
 }
 
+.project-form {
+  width: min(100%, 420px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.project-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-description-input {
+  resize: vertical;
+  min-height: 88px;
+  font: inherit;
+}
+
 .todo-list-input {
   flex: 1;
   min-width: 0;
