@@ -1,10 +1,28 @@
 import '../App.css'
+import '../css/stats.css'
+
+import { useState, useEffect } from 'react';
 
 import profilePicture from '../assets/RaresPFP.jpeg'
 
 import Clock from '../components/Clock.jsx';
 
 function Home() {
+    const [stats, setStats] = useState(null);
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/projects/stats');
+                const data = await response.json();
+                setStats(data);
+            } catch (error) {
+                console.error('Error fetching stats:', error);
+            }
+        };
+
+        fetchStats();
+    }, []);
 
     return (
         <div>
@@ -14,6 +32,7 @@ function Home() {
         </div>
         <h1>Taflan Rareș</h1>
         <h1>Computer Engineering Student</h1>
+        
       </header>
       <main>
         <section id="about">
@@ -43,6 +62,25 @@ function Home() {
             </ol>
           </div>
         </section>
+        {stats && (
+          <section id="stats">
+            <h2>Project Statistics</h2>
+              <div className="section-content stats-grid">
+                <div className="stat-card">
+                  <span className="stat-label">Total Projects</span>
+                  <span className="stat-value">{stats.total}</span>
+                </div>
+                <div className="stat-card">
+                  <span className="stat-label">Completed</span>
+                  <span className="stat-value">{stats.done}</span>
+                </div>
+                <div className="stat-card">
+                  <span className="stat-label">In Progress</span>
+                  <span className="stat-value">{stats.notDone}</span>
+              </div>
+            </div>
+          </section>
+        )}
         </main>
       </div>    
     );

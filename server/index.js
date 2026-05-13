@@ -54,6 +54,17 @@ app.get('/api/project/:id', async function (req, res) {
     }
 });
 
+app.get('/api/projects/stats', async function (req, res) {
+    try {
+        const total = await Project.countDocuments();
+        const done = await Project.countDocuments({ done: true });
+        const notDone = total - done;
+        res.json({ total, done, notDone });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 app.delete('/api/projects/:id', async function (req, res) {
     try {
         const project = await Project.findByIdAndDelete(req.params.id);
@@ -67,31 +78,19 @@ app.delete('/api/projects/:id', async function (req, res) {
     }
 });
 
-/*
-app.put('/api/projects/:id', function (req, res) {
-    const id = parseInt(req.params.id);
-    const project = projects.find(p => p.id === id);
-
-    if (!project) {
-        return res.status(404).json({ error: 'Not found' });
+app.put('/api/projects/:id', async function (req, res) {
+    try {
+        const updated = await Project.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        if (!updated) return res.status(404).json({ error: 'Not found' });
+        res.json(updated);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
-
-    project.title = req.body.title ?? project.title;
-    project.tech = req.body.tech ?? project.tech;
-    project.description = req.body.description ?? project.description;
-    project.done = req.body.done ?? project.done;
-
-    res.json(project);
 });
-
-app.get('/api/projects/stats', function (req, res) {
-    const total = projects.length;
-    const done = projects.filter(p => p.done).length;
-    const notDone = total - done;
-
-    res.json({ total, done, notDone });
-});
-*/
 
 // Prima ruta: raspunde la GET /
 app.get('/', function (req, res) {

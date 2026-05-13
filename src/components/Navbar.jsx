@@ -32,9 +32,9 @@ function Navbar() {
     return (
         <nav>
             <ul className="navbar">
-                <li><NavLink to="/" end>Home</NavLink></li>
-                <li><NavLink to="/projects">Proiecte</NavLink></li>
-                <li><NavLink to="/contact">Contact</NavLink></li>
+                <li><NavLink to="/" end>     Home     </NavLink></li>
+                <li><NavLink to="/projects"> Proiecte </NavLink></li>
+                <li><NavLink to="/contact">  Contact  </NavLink></li>
                 <button
                     type="button"
                     className="theme-toggle-button"

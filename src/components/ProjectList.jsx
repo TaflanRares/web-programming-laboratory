@@ -62,24 +62,56 @@ function ProjectList() {
     }
 
     function handleDelete(projectId) {
-        fetch('http://localhost:3000/api/projects/' + projectId, {
-            method: 'DELETE'
-        })
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('Delete failed');
-            }
+        if (window.confirm('Are you sure you want to delete this project?')) {
+            fetch('http://localhost:3000/api/projects/' + projectId, {
+                method: 'DELETE'
+            })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Delete failed');
+                    }
 
-            setProjects(function (prevProjects) {
-                return prevProjects.filter(function (project) {
-                    return project._id !== projectId;
+                    setProjects(function (prevProjects) {
+                        return prevProjects.filter(function (project) {
+                            return project._id !== projectId;
+                        });
+                    });
+                })
+                .catch(function (err) {
+                    setError('Error deleting project');
+                    console.error('Error deleting project:', err);
                 });
-            });
+        }
+    }
+
+    function handleStatusToggle(project) {
+        fetch('http://localhost:3000/api/projects/' + project._id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                done: !project.done
+            })
         })
-        .catch(function (err) {
-            setError('Error deleting project');
-            console.error('Error deleting project:', err);
-        });
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Status update failed');
+                }
+
+                return response.json();
+            })
+            .then(function (updatedProject) {
+                setProjects(function (prevProjects) {
+                    return prevProjects.map(function (item) {
+                        return item._id === updatedProject._id ? updatedProject : item;
+                    });
+                });
+            })
+            .catch(function (err) {
+                setError('Error updating project status');
+                console.error('Error updating project status:', err);
+            });
     }
 
     if (loading) {
@@ -119,21 +151,44 @@ function ProjectList() {
                 > Add </button>
             </form>
 
-            <input value={search} onChange={(e) => setSearch(e.target.value)} />
-            <h5>
-                Proiecte: {projects.filter(item => item.title.toLowerCase().includes(search.toLowerCase())).length}
-            </h5>
+            <div className="project-toolbar">
+                <input
+                    className="project-search-input"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search projects"
+                />
+                <h5>
+                    Proiecte: {projects.filter(item => item.title.toLowerCase().includes(search.toLowerCase())).length}
+                </h5>
+            </div>
             {
                 projects
                 .filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
                 .map(function (project) {
+                    const projectCardClassName = project.done
+                        ? 'project-card project-card--done'
+                        : 'project-card project-card--todo';
+
+                    const projectStatusButtonClassName = project.done
+                        ? 'project-status-button project-status-button--done'
+                        : 'project-status-button project-status-button--todo';
+
                     return (
-                        <div key={project._id}>
+                        <div key={project._id} className="project-item">
                             <Card
+                                className={projectCardClassName}
                                 title={project.title}
                                 subtitle={project.tech}
                                 description={project.description || project.desc || 'No description provided.'}
                             />
+                            <button
+                                type="button"
+                                className={projectStatusButtonClassName}
+                                onClick={() => handleStatusToggle(project)}
+                            >
+                                {project.done ? 'Mark not done' : 'Mark done'}
+                            </button>
                             <button
                                 type="button"
                                 className="todo-list-delete-button"

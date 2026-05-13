@@ -4,7 +4,7 @@ function Card(props) {
         : 'No description provided.';
 
     return (
-        <div>
+        <div className={props.className}>
             <h3>{props.title}</h3>
             <h5>{props.subtitle}</h5>
             <p>{descriptionText}</p>

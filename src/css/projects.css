@@ -1,0 +1,123 @@
+.project-toolbar {
+  width: min(100%, 760px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.project-toolbar h5 {
+  margin: 0;
+}
+
+.project-search-input {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #bfcac5;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  font: inherit;
+}
+
+.project-item {
+  width: min(100%, 760px);
+  margin-bottom: 14px;
+}
+
+.project-card {
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 20px rgba(8, 40, 28, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card h3 {
+  margin-bottom: 4px;
+}
+
+.project-card p {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.project-card--done {
+  background: linear-gradient(160deg, #e8f8ef 0%, #d8f0e0 100%);
+  border-color: #7bc79b;
+}
+
+.project-card--todo {
+  background: linear-gradient(160deg, #fff3e0 0%, #ffe2c1 100%);
+  border-color: #e7a14f;
+}
+
+.project-card--done h3,
+.project-card--done h5,
+.project-card--done p,
+.project-card--todo h3,
+.project-card--todo h5,
+.project-card--todo p {
+  color: inherit;
+}
+
+.project-status-button {
+  margin-top: 10px;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.project-status-button--done {
+  background: #0f7a49;
+  color: #ffffff;
+}
+
+.project-status-button--done:hover {
+  background: #0b6139;
+}
+
+.project-status-button--todo {
+  background: #c56a12;
+  color: #ffffff;
+}
+
+.project-status-button--todo:hover {
+  background: #a9550a;
+}
+
+.project-item .todo-list-delete-button {
+  margin-top: 10px;
+}
+
+body.dark-mode .project-search-input {
+  border-color: #555555;
+  background: var(--form-background);
+  color: var(--text-color);
+}
+
+body.dark-mode .project-card--done {
+  background: linear-gradient(160deg, #234735 0%, #1f3d2f 100%);
+  border-color: #3d8461;
+}
+
+body.dark-mode .project-card--todo {
+  background: linear-gradient(160deg, #4c3622 0%, #3f2d1f 100%);
+  border-color: #8a5a2c;
+}
+
+body.dark-mode .project-status-button--done {
+  background: #1a8e57;
+}
+
+body.dark-mode .project-status-button--done:hover {
+  background: #179250;
+}
+
+body.dark-mode .project-status-button--todo {
+  background: #d57a22;
+}
+
+body.dark-mode .project-status-button--todo:hover {
+  background: #c86a13;
+}
