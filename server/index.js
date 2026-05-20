@@ -100,5 +100,5 @@ app.get('/', function (req, res) {
 
 // Porneste serverul
 app.listen(PORT, function () {
-    console.log('Server pornit pe http://localhost:' + PORT);
+    console.log('Server pornit pe https://web-programming-laboratory.onrender.com/' + PORT);
 });

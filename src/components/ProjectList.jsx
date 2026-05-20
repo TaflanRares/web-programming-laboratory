@@ -11,7 +11,7 @@ function ProjectList() {
     const [description, setDescription] = useState('');
 
     useEffect(function () {
-        fetch('http://localhost:3000/api/projects')
+        fetch('https://web-programming-laboratory.onrender.com/api/projects')
             .then(function (response) {
                 return response.json();
             })
@@ -34,7 +34,7 @@ function ProjectList() {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/projects', {
+            const response = await fetch('https://web-programming-laboratory.onrender.com/api/projects', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -63,7 +63,7 @@ function ProjectList() {
 
     function handleDelete(projectId) {
         if (window.confirm('Are you sure you want to delete this project?')) {
-            fetch('http://localhost:3000/api/projects/' + projectId, {
+            fetch('https://web-programming-laboratory.onrender.com/api/projects/' + projectId, {
                 method: 'DELETE'
             })
                 .then(function (response) {
@@ -85,7 +85,7 @@ function ProjectList() {
     }
 
     function handleStatusToggle(project) {
-        fetch('http://localhost:3000/api/projects/' + project._id, {
+        fetch('https://web-programming-laboratory.onrender.com/api/projects/' + project._id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
