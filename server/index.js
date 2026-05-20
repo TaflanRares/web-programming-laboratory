@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -5,11 +6,11 @@ const mongoose = require('mongoose');
 const Project = require('./models/Project');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/dashboard')
+mongoose.connect(process.env.MONGO_URI)
     .then(function () {
         console.log('Connected to MongoDB!');
     })
@@ -50,7 +51,7 @@ app.get('/api/project/:id', async function (req, res) {
             res.status(404).json({ error: 'Project not found' });
         }
     } catch (err) {
-        res.status(500).json({ error: err.message});
+        res.status(500).json({ error: err.message });
     }
 });
 
@@ -74,7 +75,7 @@ app.delete('/api/projects/:id', async function (req, res) {
             res.status(404).json({ error: 'Project not found' });
         }
     } catch (err) {
-        res.status(500).json({ error: err.message});
+        res.status(500).json({ error: err.message });
     }
 });
 

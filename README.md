@@ -49,8 +49,8 @@ Proiect realizat cu **React.js** pe frontend și **Express + Node.js** pe backen
 
 ### Cerințe
 
-- [Node.js](https://nodejs.org/) (v18+)
-- [MongoDB](https://www.mongodb.com/) (local sau Atlas)
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/) (Atlas)
 
 ### Pași
 
