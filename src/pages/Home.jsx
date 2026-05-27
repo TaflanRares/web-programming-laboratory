@@ -13,7 +13,7 @@ function Home() {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/projects/stats');
+        const response = await fetch('https://web-programming-laboratory.onrender.com/api/projects/stats');
                 const data = await response.json();
                 setStats(data);
             } catch (error) {
@@ -64,8 +64,8 @@ function Home() {
         </section>
         {stats && (
           <section id="stats">
-            <h2>Project Statistics</h2>
-              <div className="section-content stats-grid">
+            <h2>Projects</h2>
+              <div className="section-content section-collapsable stats-grid">
                 <div className="stat-card">
                   <span className="stat-label">Total Projects</span>
                   <span className="stat-value">{stats.total}</span>
@@ -74,10 +74,6 @@ function Home() {
                   <span className="stat-label">Completed</span>
                   <span className="stat-value">{stats.done}</span>
                 </div>
-                <div className="stat-card">
-                  <span className="stat-label">In Progress</span>
-                  <span className="stat-value">{stats.notDone}</span>
-              </div>
             </div>
           </section>
         )}

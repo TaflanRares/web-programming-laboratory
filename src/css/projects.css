@@ -43,6 +43,23 @@
   margin-top: 10px;
 }
 
+.project-edit-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-edit-input,
+.project-edit-textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-edit-textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
 .project-card--done {
   background: linear-gradient(160deg, #e8f8ef 0%, #d8f0e0 100%);
   border-color: #7bc79b;
@@ -86,6 +103,15 @@
   background: #a9550a;
 }
 
+.project-status-button--edit {
+  background: #205f93;
+  color: #ffffff;
+}
+
+.project-status-button--edit:hover {
+  background: #184b75;
+}
+
 .project-item .todo-list-delete-button {
   margin-top: 10px;
 }
@@ -120,4 +146,12 @@ body.dark-mode .project-status-button--todo {
 
 body.dark-mode .project-status-button--todo:hover {
   background: #c86a13;
+}
+
+body.dark-mode .project-status-button--edit {
+  background: #2c74aa;
+}
+
+body.dark-mode .project-status-button--edit:hover {
+  background: #245f8c;
 }

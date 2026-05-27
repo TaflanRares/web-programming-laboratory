@@ -9,6 +9,10 @@ function ProjectList() {
     const [title, setTitle] = useState('');
     const [tech, setTech] = useState('');
     const [description, setDescription] = useState('');
+    const [editingProjectId, setEditingProjectId] = useState(null);
+    const [editTitle, setEditTitle] = useState('');
+    const [editTech, setEditTech] = useState('');
+    const [editDescription, setEditDescription] = useState('');
 
     useEffect(function () {
         fetch('https://web-programming-laboratory.onrender.com/api/projects')
@@ -114,6 +118,55 @@ function ProjectList() {
             });
     }
 
+    function startEditing(project) {
+        setEditingProjectId(project._id);
+        setEditTitle(project.title || '');
+        setEditTech(project.tech || '');
+        setEditDescription(project.description || project.desc || '');
+    }
+
+    function cancelEditing() {
+        setEditingProjectId(null);
+        setEditTitle('');
+        setEditTech('');
+        setEditDescription('');
+    }
+
+    async function handleUpdateProject(project) {
+        if (editTitle.trim() === '') {
+            return;
+        }
+
+        try {
+            const response = await fetch('https://web-programming-laboratory.onrender.com/api/projects/' + project._id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: editTitle.trim(),
+                    tech: editTech.trim(),
+                    description: editDescription.trim()
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Update failed');
+            }
+
+            const updatedProject = await response.json();
+            setProjects(function (prevProjects) {
+                return prevProjects.map(function (item) {
+                    return item._id === updatedProject._id ? updatedProject : item;
+                });
+            });
+            cancelEditing();
+        } catch (err) {
+            setError('Error updating project');
+            console.error('Error updating project:', err);
+        }
+    }
+
     if (loading) {
         return <p>Se incarca...</p>;
     }
@@ -169,6 +222,7 @@ function ProjectList() {
                     const projectCardClassName = project.done
                         ? 'project-card project-card--done'
                         : 'project-card project-card--todo';
+                    const isEditing = editingProjectId === project._id;
 
                     const projectStatusButtonClassName = project.done
                         ? 'project-status-button project-status-button--done'
@@ -176,12 +230,38 @@ function ProjectList() {
 
                     return (
                         <div key={project._id} className="project-item">
-                            <Card
-                                className={projectCardClassName}
-                                title={project.title}
-                                subtitle={project.tech}
-                                description={project.description || project.desc || 'No description provided.'}
-                            />
+                            {isEditing ? (
+                                <div className={projectCardClassName}>
+                                    <div className="project-edit-fields">
+                                        <input
+                                            className="todo-list-input project-edit-input"
+                                            value={editTitle}
+                                            onChange={(e) => setEditTitle(e.target.value)}
+                                            placeholder="Project title"
+                                        />
+                                        <input
+                                            className="todo-list-input project-edit-input"
+                                            value={editTech}
+                                            onChange={(e) => setEditTech(e.target.value)}
+                                            placeholder="Tech"
+                                        />
+                                        <textarea
+                                            className="todo-list-input project-description-input project-edit-textarea"
+                                            value={editDescription}
+                                            onChange={(e) => setEditDescription(e.target.value)}
+                                            placeholder="Description"
+                                            rows={3}
+                                        />
+                                    </div>
+                                </div>
+                            ) : (
+                                <Card
+                                    className={projectCardClassName}
+                                    title={project.title}
+                                    subtitle={project.tech}
+                                    description={project.description || project.desc || 'No description provided.'}
+                                />
+                            )}
                             <button
                                 type="button"
                                 className={projectStatusButtonClassName}
@@ -191,11 +271,28 @@ function ProjectList() {
                             </button>
                             <button
                                 type="button"
+                                className="project-status-button project-status-button--edit"
+                                onClick={() => (isEditing ? handleUpdateProject(project) : startEditing(project))}
+                            >
+                                {isEditing ? 'Save' : 'Edit'}
+                            </button>
+                            {isEditing ? (
+                                <button
+                                    type="button"
+                                    className="todo-list-delete-button"
+                                    onClick={cancelEditing}
+                                >
+                                    Cancel
+                                </button>
+                            ) : (
+                            <button
+                                type="button"
                                 className="todo-list-delete-button"
                                 onClick={() => handleDelete(project._id)}
                             >
                                 Delete
                             </button>
+                            )}
                         </div>
                     );
                 })

@@ -1,5 +1,5 @@
 #stats::before {
-  background: linear-gradient(90deg, #e74c3c 0%, #f39c12 100%);
+  background: #f2b24a;
 }
 
 .stats-grid {
@@ -35,10 +35,7 @@ body.dark-mode .stat-label {
 .stat-value {
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #e74c3c, #f39c12);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f2b24a;
 }
 
 @media (max-width: 768px) {
