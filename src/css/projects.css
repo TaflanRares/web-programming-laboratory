@@ -128,8 +128,8 @@ body.dark-mode .project-card--done {
 }
 
 body.dark-mode .project-card--todo {
-  background: linear-gradient(160deg, #4c3622 0%, #3f2d1f 100%);
-  border-color: #8a5a2c;
+  background: linear-gradient(160deg, #814a1a 0%, #97511c 100%);
+  border-color: #d87c20;
 }
 
 body.dark-mode .project-status-button--done {
